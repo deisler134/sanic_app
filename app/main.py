@@ -1,7 +1,9 @@
 from sanic import Sanic
 from sanic.response import json
+from sanic_openapi import swagger_blueprint
 
-app = Sanic()
+app = Sanic(__name__)
+app.blueprint(swagger_blueprint)
 
 @app.route("/")
 async def test(request):
