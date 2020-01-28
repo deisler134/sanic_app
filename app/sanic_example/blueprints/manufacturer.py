@@ -2,8 +2,8 @@ from sanic.blueprints import Blueprint
 from sanic.response import json
 from sanic_openapi import doc
 
-from api.models import Driver
-from test.test_data import test_manufacturer
+from api.models import Driver, Status
+from test.test_data import test_manufacturer, test_success
 
 blueprint = Blueprint('Manufacturer', '/manufacturer')
 
@@ -25,3 +25,9 @@ async def manufacturer_get(request, manufacturer_id):
 @doc.produces(Driver)
 async def manufacturer_put(request, manufacturer_id):
     return json(test_manufacturer)
+
+@blueprint.delete("/<manufacturer_id:int>", strict_slashes=True)
+@doc.summary("Deletes a manufacturer")
+@doc.produces(Status)
+def manufacturer_delete(request, manufacturer_id):
+    return json(test_success)
