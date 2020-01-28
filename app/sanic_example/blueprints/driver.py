@@ -4,7 +4,7 @@ from sanic_openapi import doc
 
 from api.models import Driver
 from test.test_data import test_driver
-import json
+# import json
 
 blueprint = Blueprint('Driver', '/driver')
 
