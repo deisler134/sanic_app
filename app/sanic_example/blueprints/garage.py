@@ -2,8 +2,8 @@ from sanic.blueprints import Blueprint
 from sanic.response import json
 from sanic_openapi import doc
 
-from models import Garage, Car, Status
-from data import test_garage, test_success
+from api.models import Garage, Car, Status
+from test.test_data import test_garage, test_success
 
 blueprint = Blueprint('Garage', '/garage')
 
